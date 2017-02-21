@@ -4,11 +4,11 @@
   "description": "A custom auth integration for Firebase and Twitter Digits",
   "main": "firebase-digits.js",
   "scripts": {
-    "test": "node test.js"
+    "start": "node start.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deltaepsilon/firebase-digits.git"
+    "url": "git+https://github.com/kickstandapps/firebase-digits.git"
   },
   "keywords": [
     "twitter",
