@@ -12,8 +12,6 @@ module.exports = function FirebaseDigits(firebase, path) {
     var serviceProvider = login['X-Auth-Service-Provider'];
     var credentials = login['X-Verify-Credentials-Authorization'];
     
-    loginRef.child('hello').set('hello');
-
     // Move stray tokens for debugging/cleanup
     if (typeof login.token != 'undefined') return ref.child('unhandledTokens')
       .push((login.uid = snap.key, login))
