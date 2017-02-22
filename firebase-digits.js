@@ -40,17 +40,19 @@ module.exports = function FirebaseDigits(firebase, path) {
       }
     })
       .then(function (res) {
-        var token = firebase.auth().createCustomToken(res.data.id_str, res.data);
-        firebaseDigits.emit('response', res.data);
-        firebaseDigits.emit('token', token);
-        return loginRef.child('token').set(token);
-      })
-      .then(function () {
-        return loginRef.remove();
-      })
-      .catch(function (err) {
-        firebaseDigits.emit('error', err);
-        return loginRef.child('error').set(err.toString());
+        firebase.auth().createCustomToken(res.data.id_str, res.data)
+        .then(function(token) {
+        	firebaseDigits.emit('response', res.data);
+        	firebaseDigits.emit('token', token);
+        	return loginRef.child('token').set(token);
+        })
+        .then(function () {
+        	return loginRef.remove();
+        })
+        .catch(function (err) {
+        	firebaseDigits.emit('error', err);
+        	return loginRef.child('error').set(err.toString());
+      	});
       });
   };
 

@@ -1,6 +1,8 @@
-var firebase = require('firebase').initializeApp({
-    "databaseURL": "https://shophere-1108.firebaseio.com/",
-    "serviceAccount": "./service-account.json"
+var admin = require('firebase-admin');
+var serviceAccount = require('./service-account.json');
+var firebase = admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount),
+	databaseURL: "https://shophere-1108.firebaseio.com/"
   });
 var FirebaseDigits = require('./firebase-digits');
 var firebaseDigits = FirebaseDigits(firebase, '/digits'); // Will listen on the /digits node

@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "axios": "^0.14.0",
-    "firebase": "^3.3.0"
+    "firebase-admin": "^4.1.0"
   }
 }
